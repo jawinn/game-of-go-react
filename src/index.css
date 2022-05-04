@@ -1,3 +1,11 @@
+:root {
+  --board-color: #c58f63;
+  --stone-white-color: #d1ccc6;
+  --stone-black-color: #232323;
+  --main-bg-color-1: #1c3240;
+  --main-bg-color-2: #01161e;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,6 +13,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  background: radial-gradient(circle at 15% top, var(--main-bg-color-1), var(--main-bg-color-2));
 }
 
 code {
