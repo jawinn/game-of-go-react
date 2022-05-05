@@ -1,0 +1,11 @@
+.board {
+	position: relative;
+	width: 800px;
+	height: 800px;
+	margin: 1.0rem auto;
+	padding: 0;
+	display: grid;
+	grid-template-columns: repeat(9, 1fr);
+	background-color: var(--board-color);
+	list-style-type: none;
+}

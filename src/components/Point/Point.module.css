@@ -1,0 +1,66 @@
+.point {
+	--horiz-line-size: 100% 2px;
+	--vert-line-size: 2px 100%;
+	--horiz-bg-pos: center center;
+	--vert-bg-pos: center center;
+
+	position: relative;
+	margin: 0;
+	padding: 0;
+	background-color: transparent;
+	background-repeat: no-repeat;
+	background-image: linear-gradient(var(--grid-color), var(--grid-color)), linear-gradient(var(--grid-color), var(--grid-color));
+	background-size: var(--horiz-line-size), var(--vert-line-size);
+	background-position: var(--horiz-bg-pos), var(--vert-bg-pos);
+}
+
+.point button {
+	display: block;
+	position: relative;
+	width: 100%;
+	height: 100%;
+	border: 0;
+	margin: 0;
+	padding: 0;
+	background: transparent;
+}
+
+.point-9x9,
+.point-13x13,
+.point-19x19 {
+	composes: point;
+}
+
+/* Top edge */
+.point-9x9:nth-child(-n+9),
+.point-13x13:nth-child(-n+13),
+.point-19x19:nth-child(-n+19) {
+	--vert-line-size: 2px 50%;
+	--vert-bg-pos: bottom center;
+}
+
+/* Bottom edge */
+.point-9x9:nth-last-child(-n+9),
+.point-13x13:nth-last-child(-n+13),
+.point-19x19:nth-last-child(-n+19) {
+	--vert-line-size: 2px 50%;
+	--vert-bg-pos: top center;
+}
+
+/* Left edge */
+.point-9x9:nth-child(9n+1),
+.point-13x13:nth-child(13n+1),
+.point-19x19:nth-child(19n+1) {
+	--horiz-line-size: 50% 2px;
+	--horiz-bg-pos: right center;
+}
+
+/* Right edge */
+.point-9x9:nth-child(9n+9),
+.point-13x13:nth-child(13n+13),
+.point-19x19:nth-child(19n+19) {
+	--horiz-line-size: 50% 2px;
+	--horiz-bg-pos: left center;
+}
+
+/* TODO Dots on grid */

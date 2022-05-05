@@ -1,9 +1,17 @@
 :root {
   --board-color: #c58f63;
+  --grid-color: #26221f;
   --stone-white-color: #d1ccc6;
   --stone-black-color: #232323;
-  --main-bg-color-1: #1c3240;
-  --main-bg-color-2: #01161e;
+  --main-bg-color-1: #2b323e;
+  --main-bg-color-2: #0c1112;
+}
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
 }
 
 body {
@@ -13,8 +21,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  background: radial-gradient(circle at 15% top, var(--main-bg-color-1), var(--main-bg-color-2));
+  min-height: 100vh;
+  background: radial-gradient(circle at 25% top, var(--main-bg-color-1), var(--main-bg-color-2));
 }
 
 code {
