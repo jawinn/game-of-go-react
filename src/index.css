@@ -3,8 +3,10 @@
   --grid-color: #26221f;
   --stone-white-color: #d1ccc6;
   --stone-black-color: #232323;
-  --main-bg-color-1: #2b323e;
-  --main-bg-color-2: #0c1112;
+  --main-bg-color-1: #462f2f;
+  --main-bg-color-2: #292d31;
+  --main-bg-color-3: #201610;
+  --min-tap-target: 44px;
 }
 
 html {
@@ -22,7 +24,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   min-height: 100vh;
-  background: radial-gradient(circle at 25% top, var(--main-bg-color-1), var(--main-bg-color-2));
+  background: radial-gradient(circle at 25% top, var(--main-bg-color-1), var(--main-bg-color-2), var(--main-bg-color-3));
 }
 
 code {
