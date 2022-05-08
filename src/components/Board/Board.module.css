@@ -1,10 +1,12 @@
 .board {
+	--board-margin: 0.75rem;
+
 	position: relative;
 	width: 96vh;
 	height: 96vh;
-	max-height: 100vw;
-	max-width: 100vw;
-	margin: 1.0rem 1.0rem;
+	max-height:calc(100vw - (var(--board-margin) * 2));
+	max-width: calc(100vw - (var(--board-margin) * 2));
+	margin: var(--board-margin);
 	padding: 0;
 	display: grid;
 	grid-template-columns: repeat(9, 1fr);
@@ -15,6 +17,7 @@
 
 @media (min-width: 600px) {
 	.board {
+		--board-margin: 1.0rem;
 		border-radius: 8px;
 	}
 }
@@ -33,16 +36,16 @@
 }
 
 .board-9x9 {
-	min-width: calc(9 * var(--min-tap-target));
-	min-height: calc(9 * var(--min-tap-target));
+	min-width: calc(9 * var(--min-tap-target) + (var(--board-margin) * 2));
+	min-height: calc(9 * var(--min-tap-target) + (var(--board-margin) * 2));
 }
 
 .board-13x13 {
-	min-width: calc(13 * var(--min-tap-target));
-	min-height: calc(13 * var(--min-tap-target));
+	min-width: calc(13 * var(--min-tap-target) + (var(--board-margin) * 2));
+	min-height: calc(13 * var(--min-tap-target) + (var(--board-margin) * 2));
 }
 
 .board-19x19 {
-	min-width: calc(19 * var(--min-tap-target));
-	min-height: calc(19 * var(--min-tap-target));
+	min-width: calc(19 * var(--min-tap-target) + (var(--board-margin) * 2));
+	min-height: calc(19 * var(--min-tap-target) + (var(--board-margin) * 2));
 }
