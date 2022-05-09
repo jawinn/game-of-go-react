@@ -3,6 +3,7 @@
 	--vert-line-size: 1px 100%;
 	--horiz-bg-pos: center center;
 	--vert-bg-pos: center center;
+	--star-point-size: 5px;
 
 	position: relative;
 	margin: 0;
@@ -60,4 +61,27 @@
 	.right  { --horiz-line-size: 50% 2px; }
 }
 
-/* TODO Dots on grid */
+/* Star Points (Dots) */
+.star::after {
+	content: '';
+	display: block;
+	position: absolute;
+	background-color: var(--grid-color);
+	border-radius: 50%;
+	left: calc(50% - (var(--star-point-size) / 2));
+	top: calc(50% - (var(--star-point-size) / 2));
+	width: var(--star-point-size);
+	height: var(--star-point-size);
+}
+
+@media (min-width: 500px) and (min-height: 500px) {
+	.star::after {
+		--star-point-size: 10px;
+	}
+}
+
+@media (min-width: 850px) and (min-height: 850px) {
+	.star::after {
+		--star-point-size: 12px;
+	}
+}
