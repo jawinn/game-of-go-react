@@ -5,7 +5,7 @@ import Point from './Point';
 
 describe('<Point />', () => {
   test('it should mount', () => {
-    render(<Point />);
+    render(<Point gridX={0} gridY={0} />);
     
     const point = screen.getByTestId('Point');
 

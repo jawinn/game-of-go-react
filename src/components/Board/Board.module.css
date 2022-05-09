@@ -2,14 +2,16 @@
 	--board-margin: 0.75rem;
 
 	position: relative;
+	display: grid;
+	grid-template-rows: repeat(var(--board-size), 1fr);
 	width: 96vh;
 	height: 96vh;
 	max-height:calc(100vw - (var(--board-margin) * 2));
 	max-width: calc(100vw - (var(--board-margin) * 2));
+	min-width: calc(var(--board-size) * var(--min-tap-target) + (var(--board-margin) * 2));
+	min-height: calc(var(--board-size) * var(--min-tap-target) + (var(--board-margin) * 2));
 	margin: var(--board-margin);
 	padding: 0;
-	display: grid;
-	grid-template-columns: repeat(9, 1fr);
 	background-color: var(--board-color);
 	list-style-type: none;
 	border-radius: 4px;
@@ -29,23 +31,20 @@
 	}
 }
 
-.board-9x9,
-.board-13x13,
-.board-19x19 {
+.size-9x9,
+.size-13x13,
+.size-19x19 {
 	composes: board;
 }
 
-.board-9x9 {
-	min-width: calc(9 * var(--min-tap-target) + (var(--board-margin) * 2));
-	min-height: calc(9 * var(--min-tap-target) + (var(--board-margin) * 2));
+.size-9x9 {
+	--board-size: 9;
 }
 
-.board-13x13 {
-	min-width: calc(13 * var(--min-tap-target) + (var(--board-margin) * 2));
-	min-height: calc(13 * var(--min-tap-target) + (var(--board-margin) * 2));
+.size-13x13 {
+	--board-size: 13;
 }
 
-.board-19x19 {
-	min-width: calc(19 * var(--min-tap-target) + (var(--board-margin) * 2));
-	min-height: calc(19 * var(--min-tap-target) + (var(--board-margin) * 2));
+.size-19x19 {
+	--board-size: 19;
 }

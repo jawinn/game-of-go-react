@@ -1,4 +1,4 @@
-.point {
+.default {
 	--horiz-line-size: 100% 1px;
 	--vert-line-size: 1px 100%;
 	--horiz-bg-pos: center center;
@@ -15,13 +15,13 @@
 }
 
 @media (min-width: 500px) and (min-height: 500px) {
-	.point {
+	.default {
 		--horiz-line-size: 100% 2px;
 		--vert-line-size: 2px 100%;
 	}
 }
 
-.point button {
+.default button {
 	display: block;
 	position: relative;
 	width: 100%;
@@ -32,76 +32,32 @@
 	background: transparent;
 }
 
-.point-9x9,
-.point-13x13,
-.point-19x19 {
-	composes: point;
-}
-
-/* Top edge */
-.point-9x9:nth-child(-n+9),
-.point-13x13:nth-child(-n+13),
-.point-19x19:nth-child(-n+19) {
+/* Edges */
+.top {
 	--vert-line-size: 1px 50%;
 	--vert-bg-pos: bottom center;
 }
 
-@media (min-width: 500px) and (min-height: 500px) {
-	.point-9x9:nth-child(-n+9),
-	.point-13x13:nth-child(-n+13),
-	.point-19x19:nth-child(-n+19) {
-		--vert-line-size: 2px 50%;
-	}
-}
-
-/* Bottom edge */
-.point-9x9:nth-last-child(-n+9),
-.point-13x13:nth-last-child(-n+13),
-.point-19x19:nth-last-child(-n+19) {
+.bottom {
 	--vert-line-size: 1px 50%;
 	--vert-bg-pos: top center;
 }
 
-@media (min-width: 500px) and (min-height: 500px) {
-	.point-9x9:nth-last-child(-n+9),
-	.point-13x13:nth-last-child(-n+13),
-	.point-19x19:nth-last-child(-n+19) {
-		--vert-line-size: 2px 50%;
-	}
-}
-
-/* Left edge */
-.point-9x9:nth-child(9n+1),
-.point-13x13:nth-child(13n+1),
-.point-19x19:nth-child(19n+1) {
+.left {
 	--horiz-line-size: 50% 1px;
 	--horiz-bg-pos: right center;
 }
 
-@media (min-width: 500px) and (min-height: 500px) {
-	.point-9x9:nth-child(9n+1),
-	.point-13x13:nth-child(13n+1),
-	.point-19x19:nth-child(19n+1) {
-		--horiz-line-size: 50% 2px;
-	}
-}
-
-/* Right edge */
-.point-9x9:nth-child(9n+9),
-.point-13x13:nth-child(13n+13),
-.point-19x19:nth-child(19n+19) {
+.right {
 	--horiz-line-size: 50% 1px;
 	--horiz-bg-pos: left center;
 }
 
 @media (min-width: 500px) and (min-height: 500px) {
-	.point-9x9:nth-child(9n+9),
-	.point-13x13:nth-child(13n+13),
-	.point-19x19:nth-child(19n+19) {
-		--horiz-line-size: 50% 2px;
-	}
+	.top    { --vert-line-size: 2px 50%; }
+	.bottom { --vert-line-size: 2px 50%; }
+	.left   { --horiz-line-size: 50% 2px; }
+	.right  { --horiz-line-size: 50% 2px; }
 }
-
-
 
 /* TODO Dots on grid */
