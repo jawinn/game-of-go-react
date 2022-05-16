@@ -1,1 +1,22 @@
-.Stone {}
+.default {
+	position: relative;
+	display: block;
+	margin: 0 auto;
+	padding: 0;
+	border-radius: 50%;
+	width: 92%;
+	height: 92%;
+	background-color: var(--stone-black-color);
+	box-shadow: 0 0 3px rgba(0,0,0,0.2);
+}
+
+@media (min-width: 500px) and (min-height: 500px) {
+	.default {
+		box-shadow: 0 0 8px rgba(0,0,0,0.2);
+	}
+}
+
+.white {
+	composes: default;
+	background-color: var(--stone-white-color);
+}

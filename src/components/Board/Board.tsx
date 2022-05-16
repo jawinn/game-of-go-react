@@ -1,27 +1,46 @@
-import React, {useState} from 'react';
+import React from 'react';
 import styles from './Board.module.css';
-import Point from '../../components/Point/Point';
-import BoardRow from '../BoardRow/BoardRow';
+import Point from 'components/Point/Point';
+import BoardRow from 'components/BoardRow/BoardRow';
+import { StoneType } from 'components/Stone/Stone'
+import { getRandomInt } from 'utils/genericHelpers';
+
+/**
+ * New empty game board data. Or random board data for testing.
+ */
+export const newBoardData = (boardSize:number, randomFill:boolean = false): StoneType[][] => {
+  if (!randomFill){
+    return [...Array(boardSize)]
+      .map(() => Array(boardSize).fill(StoneType.Empty));
+  } else {
+    return [...Array(boardSize)]
+      .map(() => Array(boardSize).fill(StoneType.Empty)
+      .map(() => getRandomInt(0,2)));
+  }
+};
 
 interface BoardProps {
-  boardSize: number
+  boardSize: number,
+  boardData: StoneType[][],
+  handleClickPoint?(e: React.MouseEvent<HTMLButtonElement>, gridX: number, gridY: number): void
 }
 
 /**
  * The square game board, made up of intersecting Points.
  * The grid can be different sizes: 19x19, 13x13, and 9x9 are standard.
  */
-const Board = ({boardSize = 9}: BoardProps) => {
-  const [boardData] = useState<number[][]>(
-    [...Array(boardSize)].map(x=>Array(boardSize).fill(0))
-  );
-
-  /**
-   * Render all points of the board, within rows.
-   */
+const Board = ({boardSize = 9, boardData, handleClickPoint}: BoardProps) => {
+  // Render all points of the board, within rows.
   const renderPoints = boardData.map((row, x) => {
     const rowPoints = row.map((cellValue, y) => {
-      return <Point stoneType={cellValue} boardSize={boardSize} gridX={x} gridY={y} key={y} />
+      return <Point 
+        stoneType={cellValue} 
+        boardSize={boardSize} 
+        gridX={x} 
+        gridY={y} 
+        key={y} 
+        onClickPoint={handleClickPoint} 
+      />
     });
 
     return (

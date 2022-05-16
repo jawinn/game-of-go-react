@@ -2,17 +2,23 @@
 
 A personal project to create the ancient board game **Go** in React.
   
-A demonstration of general React principles, custom components, React _Context_, responsive design, CSS modules, and modern organized JavaScript / TypeScript code.
+A demonstration of general React principles, custom function components, responsive design, CSS modules, and modern organized JavaScript / TypeScript code.
 
 ## Features ##
 
-Coming soon.
+All features will eventually be documented here, along with some screenshots and gifs.
+
+The first goal is to get a local base version of the game working, allowing two players on the same device to play against each other. Those tasks
+and additional feature ideas are documented in the Issues section of this repository, with the **enhancement** tag.
+
+- [Base Features](https://github.com/jawinn/game-of-go-react/issues/1)
+- [Game Settings and Theme Selector](https://github.com/jawinn/game-of-go-react/issues/2)
 
 ## Accessibility ##
 
-The goal is to make this web-based game as accessible as possible.
+One of the goals of this web-based game is to make it as accessible as possible, so that it can be played with a keyboard and/or with the assistance of a screen reader.
 
-For markup, the game board is using the ARIA role **grid**, which includes child elements designated as rows and cells. 
+For markup, the game board is using the [ARIA role **grid**](https://w3c.github.io/aria-practices/#grid), which includes child elements designated as rows and cells. 
 Using just CSS `display:grid` on an unordered list of items was not a viable option, as the structure of the board would not be present and easily navigatable.
 ARIA grid was chosen over a table due to the interactivity of each point on the board (grid cell):
 
@@ -26,11 +32,11 @@ ARIA grid was chosen over a table due to the interactivity of each point on the 
 
 [2]: https://sarahmhigley.com/writing/grids-part1/
 
-Guidelines: https://w3c.github.io/aria-practices/#grid
-
 Work in progress and to be documented:
 - Labeling and screen reader considerations
 - Keyboard navigation + "a single stop in the tab order"
+
+<br>
 
 ## Development Notes / Available Scripts
 
@@ -68,36 +74,3 @@ If you aren't satisfied with the build tool and configuration choices, you can `
 Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-
-## Additional Create React App Documentation
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
