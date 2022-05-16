@@ -1,7 +1,8 @@
 import React, { useState, MouseEvent } from 'react';
 import './Game.css';
 import Board, { newBoardData } from 'components/Board/Board';
-import { StoneType } from 'components/Stone/Stone'
+import { StoneType } from 'components/Stone/Stone';
+import { PointClickHandler } from 'components/Point/Point';
 import { canPlaceStone } from 'services/gameLogic';
 
 export enum GamePhase {
@@ -32,7 +33,7 @@ function Game() {
   /**
    * Player clicked a point on the board; try to place a stone.
    */
-  const handleClickPoint = (e: MouseEvent<HTMLButtonElement>, gridX: number, gridY: number): void => {
+  const handleClickPoint: PointClickHandler = (e: MouseEvent<HTMLButtonElement>, gridX: number, gridY: number): void => {
     e.preventDefault();
     const currentPlayerStone = (!turn ? StoneType.Black : StoneType.White);
 

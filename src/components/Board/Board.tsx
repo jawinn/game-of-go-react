@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Board.module.css';
-import Point from 'components/Point/Point';
+import Point, { PointClickHandler } from 'components/Point/Point';
 import BoardRow from 'components/BoardRow/BoardRow';
 import { StoneType } from 'components/Stone/Stone'
 import { getRandomInt } from 'utils/genericHelpers';
@@ -22,7 +22,7 @@ export const newBoardData = (boardSize:number, randomFill:boolean = false): Ston
 interface BoardProps {
   boardSize: number,
   boardData: StoneType[][],
-  handleClickPoint?(e: React.MouseEvent<HTMLButtonElement>, gridX: number, gridY: number): void
+  handleClickPoint?: PointClickHandler
 }
 
 /**

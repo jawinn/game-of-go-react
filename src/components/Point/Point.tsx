@@ -27,12 +27,14 @@ const getPointClassNames = (boardSize: number, gridX: number, gridY: number) => 
   return classNames.join(' ');
 };
 
+export type PointClickHandler = (e: React.MouseEvent<HTMLButtonElement>, gridX: number, gridY: number) => void;
+
 interface PointProps {
   stoneType?: number,
   boardSize?: number,
   gridX: number,
   gridY: number,
-  onClickPoint?(e: React.MouseEvent<HTMLButtonElement>, gridX: number, gridY: number): void
+  onClickPoint?: PointClickHandler
 }
 
 /**

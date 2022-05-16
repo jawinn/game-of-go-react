@@ -9,7 +9,7 @@ A demonstration of general React principles, custom function components, respons
 All features will eventually be documented here, along with some screenshots and gifs.
 
 The first goal is to get a local base version of the game working, allowing two players on the same device to play against each other. Those tasks
-and additional feature ideas are documented in the Issues section of this repository, with the **enhancement** tag.
+and additional feature ideas are documented in the Issues section of this repository, with the **enhancement** label.
 
 - [Base Features](https://github.com/jawinn/game-of-go-react/issues/1)
 - [Game Settings and Theme Selector](https://github.com/jawinn/game-of-go-react/issues/2)
