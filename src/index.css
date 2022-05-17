@@ -1,13 +1,8 @@
 :root {
-  --board-color: #c58f63;
-  --grid-color: #26221f;
-  --stone-white-color: #d1ccc6;
-  --stone-black-color: #232323;
   --main-bg-color-1: #462f2f;
   --main-bg-color-2: #292d31;
   --main-bg-color-3: #201610;
   --min-tap-target: 44px;
-  --board-size: 9;
 }
 
 html {

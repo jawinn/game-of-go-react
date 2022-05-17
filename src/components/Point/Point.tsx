@@ -3,7 +3,7 @@ import styles from './Point.module.css';
 import Stone, { StoneType } from 'components/Stone/Stone';
 import { isStarPoint } from 'services/starPoints';
 
-const getPointClassNames = (boardSize: number, gridX: number, gridY: number) => {
+export const getPointClassNames = (boardSize: number, gridX: number, gridY: number) => {
   let classNames: string[] = [styles.default];
 
   // Points at the edge of the board.
@@ -31,7 +31,7 @@ export type PointClickHandler = (e: React.MouseEvent<HTMLButtonElement>, gridX: 
 
 interface PointProps {
   stoneType?: number,
-  boardSize?: number,
+  boardSize: number,
   gridX: number,
   gridY: number,
   onClickPoint?: PointClickHandler
@@ -40,7 +40,7 @@ interface PointProps {
 /**
  * Intersecting point on the board, where stones are placed.
  */
-const Point = ({stoneType = 0, boardSize = 9, gridX, gridY, onClickPoint}: PointProps) => (
+const Point = ({stoneType = 0, boardSize, gridX, gridY, onClickPoint}: PointProps) => (
   <li 
     className={getPointClassNames(boardSize, gridX, gridY)} 
     data-testid={'Point'} 

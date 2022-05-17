@@ -1,3 +1,7 @@
+:root {
+	--board-color: #c58f63;
+}
+
 .board {
 	--board-margin: 0.75rem;
 

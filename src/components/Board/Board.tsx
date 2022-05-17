@@ -19,7 +19,7 @@ export const newBoardData = (boardSize:number, randomFill:boolean = false): Ston
   }
 };
 
-interface BoardProps {
+export interface BoardProps {
   boardSize: number,
   boardData: StoneType[][],
   handleClickPoint?: PointClickHandler

@@ -36,6 +36,12 @@ Work in progress and to be documented:
 - Labeling and screen reader considerations
 - Keyboard navigation + "a single stop in the tab order"
 
+
+## Storybook: View Isolated Components ##
+
+Components in this project support Storybook. To run the Storybook and view its web interface:
+`npm run storybook`
+
 <br>
 
 ## Development Notes / Available Scripts

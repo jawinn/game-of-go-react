@@ -7,12 +7,12 @@ export enum StoneType {
   White = 2
 }
 
-interface StoneProps {
+export interface StoneProps {
   stoneType?: StoneType
 }
 
 /**
- * Stone: The playing piece in the game. Is either black or white.
+ * The playing pieces in the game. Stones are either black or white. The component does not render anything with the Empty StoneType.
  */
 const Stone = ({stoneType = StoneType.Empty}: StoneProps) => {
   if (stoneType === StoneType.Empty){

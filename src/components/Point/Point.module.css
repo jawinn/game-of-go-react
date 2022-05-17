@@ -1,3 +1,9 @@
+:root {
+	--board-color: #c58f63;
+	--grid-color: #26221f;
+	--min-tap-target: 44px;
+}
+
 .default {
 	--horiz-line-size: 100% 1px;
 	--vert-line-size: 1px 100%;
