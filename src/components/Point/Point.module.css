@@ -21,14 +21,7 @@
 	background-position: var(--horiz-bg-pos), var(--vert-bg-pos);
 }
 
-@media (min-width: 500px) and (min-height: 500px) {
-	.default {
-		--horiz-line-size: 100% 2px;
-		--vert-line-size: 2px 100%;
-	}
-}
-
-.default button {
+.btnBlackTurn {
 	display: block;
 	position: relative;
 	width: 100%;
@@ -38,10 +31,11 @@
 	padding: 0;
 	background: transparent;
 	border-radius: 50%;
+	outline: 0;
 }
 
-.default button:enabled:focus:before, 
-.default button:enabled:hover:before {
+.btnBlackTurn:enabled:focus:before, 
+.btnBlackTurn:enabled:hover:before {
 	content: '';
 	display: block;
 	position: absolute;
@@ -49,8 +43,25 @@
 	top: 3px;
 	width: calc(100% - 6px);
 	height: calc(100% - 6px);
-	border: 1px dashed #FFFFFF;
+	border: 1px dashed #000000;
 	border-radius: 50%;
+	outline: 0;
+}
+
+.btnWhiteTurn {
+	composes: btnBlackTurn;
+}
+
+.btnWhiteTurn:enabled:focus:before, 
+.btnWhiteTurn:enabled:hover:before {
+	border-color: #FFFFFF;
+}
+
+@media (min-width: 500px) and (min-height: 500px) {
+	.default {
+		--horiz-line-size: 100% 2px;
+		--vert-line-size: 2px 100%;
+	}
 }
 
 /* Edges */

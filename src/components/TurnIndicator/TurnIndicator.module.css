@@ -1,0 +1,22 @@
+.turnIndicator {
+	text-align: center;
+	color: white;
+	font-weight: normal;
+	margin: 0.5rem 0 0 0;
+}
+
+@media (min-width: 500px) and (min-height: 500px) {
+	.turnIndicator {
+		margin: 1.0rem 0 0 0;
+	}
+}
+
+@media (min-width: 800px) and (min-height: 800px) {
+	.turnIndicator {
+		margin: 1.5rem 0 0 0;
+	}
+}
+
+.turnIndicator > .label {
+	color: rgba(255, 255, 255, 0.85);
+}

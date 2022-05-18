@@ -5,7 +5,7 @@ import Board, { newBoardData } from './Board';
 
 describe('<Board />', () => {
   test('it should mount', () => {
-    render(<Board boardSize={9} boardData={newBoardData(9, true)} />);
+    render(<Board boardSize={9} boardData={newBoardData(9, true)} turn={false} />);
     
     const board = screen.getByTestId('Board');
 

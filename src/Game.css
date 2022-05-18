@@ -4,4 +4,5 @@
   display: grid;
   place-items: center;
   overflow: auto;
+  grid-template-rows: min-content;
 }

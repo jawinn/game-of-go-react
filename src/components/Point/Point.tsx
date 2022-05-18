@@ -23,7 +23,7 @@ export const getPointClassNames = (boardSize: number, gridX: number, gridY: numb
   if (isStarPoint(boardSize, gridX, gridY)){
     classNames.push(styles.star);
   }
-  
+
   return classNames.join(' ');
 };
 
@@ -34,13 +34,14 @@ interface PointProps {
   boardSize: number,
   gridX: number,
   gridY: number,
+  turn: boolean,
   onClickPoint?: PointClickHandler
 }
 
 /**
  * Intersecting point on the board, where stones are placed.
  */
-const Point = ({stoneType = 0, boardSize, gridX, gridY, onClickPoint}: PointProps) => (
+const Point = ({stoneType = 0, boardSize, gridX, gridY, turn, onClickPoint}: PointProps) => (
   <li 
     className={getPointClassNames(boardSize, gridX, gridY)} 
     data-testid={'Point'} 
@@ -50,6 +51,7 @@ const Point = ({stoneType = 0, boardSize, gridX, gridY, onClickPoint}: PointProp
   >
     <button 
       type="button" 
+      className={ !turn ? styles.btnBlackTurn : styles.btnWhiteTurn }
       aria-label={`Point (${gridX+1},${gridY+1})`}
       disabled={stoneType !== StoneType.Empty}
       onClick={onClickPoint !== undefined ? (e) => onClickPoint(e, gridX, gridY) : undefined}

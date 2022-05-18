@@ -22,6 +22,7 @@ export const newBoardData = (boardSize:number, randomFill:boolean = false): Ston
 export interface BoardProps {
   boardSize: number,
   boardData: StoneType[][],
+  turn: boolean,
   handleClickPoint?: PointClickHandler
 }
 
@@ -29,7 +30,7 @@ export interface BoardProps {
  * The square game board, made up of intersecting Points.
  * The grid can be different sizes: 19x19, 13x13, and 9x9 are standard.
  */
-const Board = ({boardSize = 9, boardData, handleClickPoint}: BoardProps) => {
+const Board = ({boardSize = 9, boardData, turn = false, handleClickPoint}: BoardProps) => {
   // Render all points of the board, within rows.
   const renderPoints = boardData.map((row, x) => {
     const rowPoints = row.map((cellValue, y) => {
@@ -40,6 +41,7 @@ const Board = ({boardSize = 9, boardData, handleClickPoint}: BoardProps) => {
         gridY={y} 
         key={y} 
         onClickPoint={handleClickPoint} 
+        turn={turn}
       />
     });
 

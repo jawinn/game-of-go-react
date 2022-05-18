@@ -1,9 +1,11 @@
 import React, { useState, MouseEvent } from 'react';
 import './Game.css';
 import Board, { newBoardData } from 'components/Board/Board';
+import TurnIndicator from 'components/TurnIndicator/TurnIndicator';
 import { StoneType } from 'components/Stone/Stone';
 import { PointClickHandler } from 'components/Point/Point';
 import { canPlaceStone } from 'services/gameLogic';
+import { IPlayer, newPlayer } from 'services/player';
 
 export enum GamePhase {
   ChooseBoard,
@@ -20,6 +22,12 @@ function Game() {
   const [turn, setTurn] = useState<boolean>(false);
   const [boardSize] = useState<number>(9);
   const [boardData, setBoardData] = useState<StoneType[][]>(newBoardData(boardSize));
+  const [players] = useState<IPlayer[]>(
+    [
+      newPlayer('Player 1'), 
+      newPlayer('Player 2')
+    ]
+  );
 
   /**
    * Place or remove a stone; change the StoneType at a single point on the board.
@@ -48,10 +56,12 @@ function Game() {
 
   return (
     <div className="game">
+      <TurnIndicator turn={turn} players={players} />
       <Board 
         boardSize={boardSize} 
         boardData={boardData} 
         handleClickPoint={handleClickPoint} 
+        turn={turn}
       />
     </div>
   );

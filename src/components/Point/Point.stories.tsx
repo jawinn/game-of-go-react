@@ -21,7 +21,7 @@ const Template: ComponentStory<typeof Point> = (args) => (
 );
 
 export const DefaultPoint = Template.bind({});
-DefaultPoint.args = { gridX: 1, gridY: 1, boardSize: 9 };
+DefaultPoint.args = { gridX: 1, gridY: 1, boardSize: 9, turn: false };
 DefaultPoint.storyName = 'Default Middle';
 
 export const StarPoint = Template.bind({});

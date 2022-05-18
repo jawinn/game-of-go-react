@@ -33,7 +33,7 @@ const Template: Story<BoardStoryProps> = ({boardData, displayContents, ...otherA
 };
 
 export const Board9x9 = Template.bind({});
-Board9x9.args = { boardSize: 9 };
+Board9x9.args = { boardSize: 9, turn: false };
 
 export const Board13x13 = Template.bind({});
 Board13x13.args = { ...Board9x9.args, boardSize: 13 };
