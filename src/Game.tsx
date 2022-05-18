@@ -19,7 +19,7 @@ function Game() {
   const [gamePhase] = useState<GamePhase>(GamePhase.ChooseBoard);
   const [turn, setTurn] = useState<boolean>(false);
   const [boardSize] = useState<number>(9);
-  const [boardData, setBoardData] = useState<StoneType[][]>(newBoardData(boardSize, true));
+  const [boardData, setBoardData] = useState<StoneType[][]>(newBoardData(boardSize));
 
   /**
    * Place or remove a stone; change the StoneType at a single point on the board.

@@ -12,7 +12,7 @@ export interface StarPoints {
 /**
  * Location of star points (dots), based on game-based grid starting value of 1.
  */
- export const boardStarPoints: StarPoints[] = [
+export const boardStarPoints: StarPoints[] = [
 	{
 		boardSize: 9,
 		stars: [[3,3], [3,7], [5,5], [7,7], [7,3]]
@@ -31,14 +31,12 @@ export interface StarPoints {
  * Whether point on the board is a "star point" (intersection has a dot).
  */
 export const isStarPoint = (boardSize: number, gridX: number, gridY: number) => {
-	let starPoints: StarPoints | undefined = boardStarPoints.find(point => point.boardSize === boardSize);
-	if (starPoints === undefined){
-		throw new Error(`StarPoints data is not defined for board size ${boardSize}x${boardSize}`);
+	const allStarPoints: StarPoints | undefined = boardStarPoints.find(point => point.boardSize === boardSize);
+	if (allStarPoints === undefined){
+		console.warn(`StarPoints data is not defined for board size ${boardSize}`);
+		return false;
 	}
-	starPoints.stars.forEach(point => {
-		if (point[0] === gridX + 1 && point[1] === gridY + 1){
-			return true;
-		}
+	return allStarPoints.stars.some(point => {
+		return point[0] === gridX + 1 && point[1] === gridY + 1;
 	});
-	return false;
 }

@@ -95,13 +95,13 @@
 }
 
 @media (min-width: 500px) and (min-height: 500px) {
-	.star::after {
+	.star::before {
 		--star-point-size: 10px;
 	}
 }
 
 @media (min-width: 850px) and (min-height: 850px) {
-	.star::after {
+	.star::before {
 		--star-point-size: 12px;
 	}
 }
