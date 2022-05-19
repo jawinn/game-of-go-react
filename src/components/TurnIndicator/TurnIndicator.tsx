@@ -1,7 +1,6 @@
 import React from 'react';
 import styles from './TurnIndicator.module.css';
 import { IPlayer } from 'services/player';
-import { StoneType } from 'components/Stone/Stone';
 
 interface TurnIndicatorProps {
   turn: boolean,

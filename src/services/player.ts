@@ -1,4 +1,3 @@
-import { StoneType } from 'components/Stone/Stone';
 import { truncateString } from 'utils/genericHelpers';
 
 export interface IPlayer {

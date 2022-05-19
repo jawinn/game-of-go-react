@@ -51,15 +51,17 @@ const Board = ({boardSize = 9, boardData, turn = false, handleClickPoint}: Board
   });
 
   return (
-    <ol
-      className={styles[`size-${boardSize}x${boardSize}`]} 
-      data-testid="Board"
-      role="grid"
-      aria-colcount={boardSize}
-      aria-label={`Game Board: ${boardSize} by ${boardSize}`}
-    >
-      {renderPoints}
-    </ol>
+    <main className={styles.boardScroller}>
+      <ol
+        className={styles[`size-${boardSize}x${boardSize}`]} 
+        data-testid="Board"
+        role="grid"
+        aria-colcount={boardSize}
+        aria-label={`Game Board: ${boardSize} by ${boardSize}`}
+      >
+        {renderPoints}
+      </ol>
+    </main>
   );
 };
 
