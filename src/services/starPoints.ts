@@ -5,14 +5,14 @@
  */
 
 export interface StarPoints {
-	boardSize: number,
-	stars: number[][]
+	readonly boardSize: number,
+	readonly stars: number[][]
 }
 
 /**
  * Location of star points (dots), based on game-based grid starting value of 1.
  */
-export const boardStarPoints: StarPoints[] = [
+export const boardStarPoints: readonly StarPoints[] = Object.freeze([
 	{
 		boardSize: 9,
 		stars: [[3,3], [3,7], [5,5], [7,7], [7,3]]
@@ -25,7 +25,7 @@ export const boardStarPoints: StarPoints[] = [
 		boardSize: 19,
 		stars: [[4,4], [4,10], [4,16], [10,4], [10,10], [10,16], [16,4], [16,10], [16,16]]
 	},
-];
+]);
 
 /**
  * Whether point on the board is a "star point" (intersection has a dot).

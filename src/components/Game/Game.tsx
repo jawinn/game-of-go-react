@@ -55,7 +55,7 @@ function Game() {
   }
 
   return (
-    <div className="game">
+    <div className="game" data-testid="Game">
       <TurnIndicator turn={turn} players={players} />
       <Board 
         boardSize={boardSize} 
