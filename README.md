@@ -39,14 +39,19 @@ Work in progress and to be documented:
 
 ## Storybook: View Isolated Components ##
 
-Components in this project support Storybook. To run the Storybook and view its web interface:
+Components in this project support Storybook. To run the Storybook and view its web interface:  
 `npm run storybook`
 
 <br>
 
-## Development Notes / Available Scripts
+## Running the Project and Development Notes
 
-In the project directory, you can run:
+**Initial Installation:**  
+Run `nvm use` to use the working version of Node specified in the `.nvmrc` file.  
+Run `npm install` to install all packages.
+
+**Available Scripts**  
+In the project directory, you can then run any of the following scripts (defined in `package.json`):
 
 ### `npm start`
 

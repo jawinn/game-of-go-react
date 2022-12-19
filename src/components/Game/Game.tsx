@@ -18,7 +18,8 @@ export enum GamePhase {
  * Main Game (App)
  */
 function Game() {
-  const [gamePhase] = useState<GamePhase>(GamePhase.ChooseBoard);
+  // @todo Implement phases of game:
+  // const [gamePhase] = useState<GamePhase>(GamePhase.ChooseBoard);
   const [turn, setTurn] = useState<boolean>(false);
   const [boardSize] = useState<number>(9);
   const [boardData, setBoardData] = useState<StoneType[][]>(newBoardData(boardSize));
