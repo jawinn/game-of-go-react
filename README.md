@@ -50,6 +50,8 @@ Components in this project support Storybook. To run the Storybook and view its 
 Run `nvm use` to use the working version of Node specified in the `.nvmrc` file.  
 Run `npm install` to install all packages.
 
+> **Note** When running npm audit, run it with the production flag: `npm audit --production`
+
 **Available Scripts**  
 In the project directory, you can then run any of the following scripts (defined in `package.json`):
 
