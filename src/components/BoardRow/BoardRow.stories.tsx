@@ -1,8 +1,7 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoryObj, Meta } from '@storybook/react';
 import BoardRow from './BoardRow';
 
 export default {
-  title: "BoardRow",
   component: BoardRow,
   argTypes: {
     boardSize: {
@@ -20,22 +19,41 @@ export default {
   parameters: {
     backgrounds: { default: 'dark' },
   }
-} as ComponentMeta<typeof BoardRow>;
+} as Meta<typeof BoardRow>;
 
-const Template: ComponentStory<typeof BoardRow> = (args) => (
-  <BoardRow {...args} key={args.rowIndex}>
-    {[...Array(args.boardSize)].map((el, index) => (<div style={styles.testGridItem} key={index} />))}
-  </BoardRow>
-);
+const Default: StoryObj<typeof BoardRow> = {
+  render: (args) => (
+    <BoardRow {...args} key={args.rowIndex}>
+      {[...Array(args.boardSize)].map(
+        (el, index) => (<div style={styles.testGridItem} key={index} />)
+      )}
+    </BoardRow>
+  )
+};
 
-export const Row19Column = Template.bind({});
-Row19Column.args = { boardSize: 19, rowIndex: 0 };
+export const Row19Column = {
+  ...Default,
+  args: {
+    boardSize: 19,
+    rowIndex: 0
+  }
+};
 
-export const Row13Column = Template.bind({});
-Row13Column.args = { ...Row19Column.args, boardSize: 13, rowIndex: 1 };
+export const Row13Column = {
+  ...Default,
+  args: {
+    boardSize: 13,
+    rowIndex: 1
+  }
+};
 
-export const Row9Column = Template.bind({});
-Row9Column.args = { ...Row19Column.args, boardSize: 9, rowIndex: 8 };
+export const Row9Column = {
+  ...Default,
+  args: {
+    boardSize: 9,
+    rowIndex: 8
+  }
+}
 
 const styles = {
   testList: {

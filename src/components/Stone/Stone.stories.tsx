@@ -1,11 +1,10 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Meta } from '@storybook/react';
 import Stone, { StoneType } from './Stone';
 
 export default {
-  title: "Stone",
   component: Stone,
-  argTypes: { 
-    stoneType: { 
+  argTypes: {
+    stoneType: {
       control: 'false'
     }
   },
@@ -16,15 +15,22 @@ export default {
       </div>
     ),
   ],
-} as ComponentMeta<typeof Stone>;
+} as Meta<typeof Stone>;
 
-const Template: ComponentStory<typeof Stone> = (args) => <Stone {...args} />;
+export const BlackStone = {
+  args: {
+    stoneType: StoneType.Black
+  }
+};
 
-export const BlackStone = Template.bind({});
-BlackStone.args = { stoneType: StoneType.Black };
+export const WhiteStone = {
+  args: {
+    stoneType: StoneType.White
+  }
+};
 
-export const WhiteStone = Template.bind({});
-WhiteStone.args = { ...BlackStone.args, stoneType: StoneType.White };
-
-export const Empty = Template.bind({});
-Empty.args = { ...BlackStone.args, stoneType: StoneType.Empty };
+export const Empty = {
+  args: {
+    stoneType: StoneType.Empty
+  }
+};

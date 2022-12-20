@@ -1,10 +1,9 @@
-/* eslint-disable */
 import TurnIndicator from './TurnIndicator';
 import { newPlayer } from 'services/player';
 import { StoneType } from 'components/Stone/Stone';
 
 export default {
-  title: "TurnIndicator",
+  component: TurnIndicator
 };
 
 const testPlayers = [
@@ -12,8 +11,18 @@ const testPlayers = [
   newPlayer('Player 2', StoneType.White)
 ];
 
-export const Player1Turn = () => <TurnIndicator turn={false} players={testPlayers} />;
-Player1Turn.storyName = 'Player 1 Turn';
+export const Player1Turn = {
+  args: {
+    turn: false,
+    players: testPlayers
+  },
+  name: 'Player 1 Turn'
+};
 
-export const Player2Turn = () => <TurnIndicator turn={true} players={testPlayers} />;
-Player2Turn.storyName = 'Player 2 Turn';
+export const Player2Turn = {
+  args: {
+    turn: true,
+    players: testPlayers
+  },
+  name: 'Player 2 Turn'
+};
