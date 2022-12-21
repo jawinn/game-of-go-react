@@ -31,7 +31,9 @@ export const boardStarPoints: readonly StarPoints[] = Object.freeze([
  * Whether point on the board is a "star point" (intersection has a dot).
  */
 export const isStarPoint = (boardSize: number, gridX: number, gridY: number) => {
-	const allStarPoints: StarPoints | undefined = boardStarPoints.find(point => point.boardSize === boardSize);
+	const allStarPoints: StarPoints | undefined = boardStarPoints.find(
+		point => point.boardSize === boardSize
+	);
 	if (allStarPoints === undefined){
 		console.warn(`StarPoints data is not defined for board size ${boardSize}`);
 		return false;

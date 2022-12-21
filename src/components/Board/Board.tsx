@@ -32,8 +32,8 @@ export interface BoardProps {
  */
 const Board = ({boardSize = 9, boardData, turn = false, handleClickPoint}: BoardProps) => {
   // Render all points of the board, within rows.
-  const renderPoints = boardData.map((row, x) => {
-    const rowPoints = row.map((cellValue, y) => {
+  const renderPoints = boardData.map((row, y) => {
+    const rowPoints = row.map((cellValue, x) => {
       return <Point 
         stoneType={cellValue} 
         boardSize={boardSize} 
@@ -46,7 +46,7 @@ const Board = ({boardSize = 9, boardData, turn = false, handleClickPoint}: Board
     });
 
     return (
-      <BoardRow boardSize={boardSize} rowIndex={x} key={x}>{rowPoints}</BoardRow>
+      <BoardRow boardSize={boardSize} rowIndex={y} key={y}>{rowPoints}</BoardRow>
     );
   });
 
