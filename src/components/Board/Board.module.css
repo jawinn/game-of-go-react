@@ -1,13 +1,29 @@
 :root {
 	--board-color: #c58f63;
 	--board-margin: 0.5rem;
+	--scrollbar-foreground: #6e5f5f;
+	--scrollbar-background: #333333;
 }
 
 .boardScroller {
-	composes: import styledScrollbars from "components/../index.css";
 	overflow: auto;
 	width: 100%;
 	height: auto;
+	scrollbar-color: var(--scrollbar-foreground) var(--scrollbar-background);
+}
+
+.boardScroller::-webkit-scrollbar {
+	width: 10px;
+	height: 10px;
+}
+
+.boardScroller::-webkit-scrollbar-thumb {
+	background: var(--scrollbar-foreground);
+	border-radius: 5px;
+}
+
+.boardScroller::-webkit-scrollbar-track {
+	background: var(--scrollbar-background);
 }
 
 .board {

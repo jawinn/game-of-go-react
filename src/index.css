@@ -3,8 +3,6 @@
   --main-bg-color-2: #292d31;
   --main-bg-color-3: #201610;
   --min-tap-target: 44px;
-  --scrollbar-foreground: #6e5f5f;
-  --scrollbar-background: #333333;
 }
 
 /* Element defaults and typography. */
@@ -29,20 +27,4 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-}
-
-/* Utility Classes: For `compose` in other CSS modules. */
-.styledScrollbars {
-  scrollbar-color: var(--scrollbar-foreground) var(--scrollbar-background);
-}
-.styledScrollbars::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
-}
-.styledScrollbars::-webkit-scrollbar-thumb {
-  background: var(--scrollbar-foreground);
-  border-radius: 5px;
-}
-.styledScrollbars::-webkit-scrollbar-track {
-  background: var(--scrollbar-background);
 }
