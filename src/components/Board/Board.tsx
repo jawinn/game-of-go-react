@@ -31,24 +31,30 @@ export interface BoardProps {
  * The grid can be different sizes: 19x19, 13x13, and 9x9 are standard.
  */
 const Board = ({boardSize = 9, boardData, turn = false, handleClickPoint}: BoardProps) => {
-  // Render all points of the board, within rows.
-  const renderPoints = boardData.map((row, y) => {
-    const rowPoints = row.map((cellValue, x) => {
-      return <Point 
-        stoneType={cellValue} 
-        boardSize={boardSize} 
-        gridX={x} 
-        gridY={y} 
-        key={y} 
-        onClickPoint={handleClickPoint} 
-        turn={turn}
-      />
-    });
+  // Rows containing all Points.
+  let boardRows: JSX.Element[] = [];
 
-    return (
-      <BoardRow boardSize={boardSize} rowIndex={y} key={y}>{rowPoints}</BoardRow>
+  for (let y = 0; y < boardSize; y++) {
+    // Create Points within each row.
+    let points: JSX.Element[] = [];
+    for (let x = 0; x < boardSize; x++) {
+      points.push(
+        <Point 
+          stoneType={boardData[x][y]} 
+          boardSize={boardSize} 
+          gridX={x}
+          gridY={y}
+          key={y}
+          onClickPoint={handleClickPoint} 
+          turn={turn}
+        />
+      );
+    };
+    // Create row.
+    boardRows.push(
+      <BoardRow boardSize={boardSize} rowIndex={y} key={y}>{points}</BoardRow>
     );
-  });
+  }
 
   return (
     <main className={styles.boardScroller}>
@@ -59,7 +65,7 @@ const Board = ({boardSize = 9, boardData, turn = false, handleClickPoint}: Board
         aria-colcount={boardSize}
         aria-label={`Game Board: ${boardSize} by ${boardSize}`}
       >
-        {renderPoints}
+        {boardRows}
       </ol>
     </main>
   );

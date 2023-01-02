@@ -7,6 +7,9 @@ import { PointClickHandler } from 'components/Point/Point';
 import { canPlaceStone } from 'services/gameLogic';
 import { IPlayer, newPlayer } from 'services/player';
 
+/**
+ * Phases / stages of gameplay.
+ */
 export enum GamePhase {
   ChooseBoard,
   ChooseOptions,
@@ -15,12 +18,18 @@ export enum GamePhase {
 }
 
 /**
- * Main Game (App)
+ * Available board sizes.
+ */
+export const boardSizeOptions = [19, 13, 9] as const;
+export type BoardSizeOption = typeof boardSizeOptions[number];
+
+/**
+ * Main Game (App).
  */
 function Game() {
   const [gamePhase, setGamePhase] = useState<GamePhase>(GamePhase.ChooseBoard);
   const [turn, setTurn] = useState<boolean>(false);
-  const [boardSize, setBoardSize] = useState<number>(0);
+  const [boardSize, setBoardSize] = useState<BoardSizeOption>(19);
   const [boardData, setBoardData] = useState<StoneType[][]>(newBoardData(boardSize));
   const [players] = useState<IPlayer[]>(
     [
@@ -29,9 +38,11 @@ function Game() {
     ]
   );
 
-  const startGame = (newBoardSize: number) => {
-    setBoardSize(newBoardSize);
-    setBoardData(newBoardData(newBoardSize));
+  /**
+   * Start game with currently selected board size.
+   */
+  const startGame = () => {
+    setBoardData(newBoardData(boardSize));
     setGamePhase(GamePhase.PlayingGame);
   };
 
@@ -47,18 +58,26 @@ function Game() {
   /**
    * Player clicked a point on the board; try to place a stone.
    */
-  const handleClickPoint: PointClickHandler = (e: MouseEvent<HTMLButtonElement>, gridX: number, gridY: number): void => {
+  const handleClickPoint: PointClickHandler = (
+    e: MouseEvent<HTMLButtonElement>,
+    gridX: number,
+    gridY: number
+  ): void => {
     e.preventDefault();
+
+    // Check if stone can be placed:
+    if (gamePhase !== GamePhase.PlayingGame || e.currentTarget.disabled){
+      return;
+    }
     const currentPlayerStone = (!turn ? StoneType.Black : StoneType.White);
+    if (!canPlaceStone(boardData, currentPlayerStone, gridX, gridY)){
+      return;
+    }
 
-    if (e.currentTarget.disabled){ return; } 
-    // TODO: Is current player's turn
-    // TODO: In PlayingGame phase.
-    if (!canPlaceStone(boardData, currentPlayerStone, gridX, gridY)){ return; }
-
+    // Place stone, and end current player's turn.
     changeStone(gridX, gridY, currentPlayerStone);
     setTurn(!turn);
-  }
+  };
 
   /**
    * Render main game contents, based on current phase of game.
@@ -86,7 +105,7 @@ function Game() {
                 <small>The Game of</small> Go
               </h1>
               <p className={styles.subtitle}>
-                Version: 0.1 &mdash; <em className={styles.status}>Not yet fully playable</em>
+                Version: 0.1.1 &mdash; <em className={styles.status}>Not yet fully playable</em>
               </p>
             </header>
 
@@ -94,38 +113,40 @@ function Game() {
               <fieldset>
                 <legend>Choose a Board Size</legend>
                 <div className={styles.radioGrid}>
-                  <div className={styles.radioGridItem}>
-                    <input type="radio" value="9" id="boardSize-9" name="boardSize" onChange={(e) => setBoardSize(parseInt(e.target.value))} />
-                    <label htmlFor="boardSize-9">
-                      <div className={styles.itemHeading}>9 x 9</div>
-                      <div className={styles.itemSubheading}>Practice</div>
-                    </label>
-                  </div>
-                  <div className={styles.radioGridItem}>
-                    <input type="radio" value="13" id="boardSize-13" name="boardSize" onChange={(e) => setBoardSize(parseInt(e.target.value))} />
-                    <label htmlFor="boardSize-13">
-                      <div className={styles.itemHeading}>13 x 13</div>
-                      <div className={styles.itemSubheading}>Practice</div>
-                    </label>
-                  </div>
-                  <div className={styles.radioGridItem}>
-                    <input type="radio" value="19" id="boardSize-19" name="boardSize" onChange={(e) => setBoardSize(parseInt(e.target.value))} />
-                    <label htmlFor="boardSize-19">
-                      <div className={styles.itemHeading}>19 x 19</div>
-                      <div className={styles.itemSubheading}>Standard</div>
-                    </label>
-                  </div>
+                  {boardSizeOptions.map((size) => (
+                    <div
+                      className={boardSize === size ? styles.radioGridItemSelected : styles.radioGridItem}
+                      key={size}
+                      onClick={(e) => setBoardSize(size)}
+                    >
+                      <label htmlFor={`boardSize-${size}`}>
+                        <div className={styles.itemHeading}>
+                          {size}&nbsp;<span className={styles.by}><span aria-hidden="true">x</span><span className='screen-reader-text'>by</span></span>&nbsp;{size}
+                        </div>
+                        <div className={styles.itemSubheading}>{ size === 19 ? 'Standard' : 'Practice' }</div>
+                      </label>
+                      <input
+                        checked={boardSize === size}
+                        type="radio"
+                        value={size}
+                        id={`boardSize-${size}`}
+                        name="boardSize"
+                        onChange={(e) => setBoardSize(size)}
+                        className={styles.radioInput}
+                      />
+                    </div>
+                  ))}
                 </div>
               </fieldset>
 
               <p>
-                <button type="button" disabled={!boardSize}>Start Game</button>
+                <button type="button" className={styles.button} onClick={() => startGame()}>Start Game</button>
               </p>
             </article>
           </>
         );
     }
-  }
+  };
 
   return (
     <main className={styles.game} data-testid="Game">
