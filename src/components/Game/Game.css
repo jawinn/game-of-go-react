@@ -1,8 +1,0 @@
-.game {
-  min-height: 100vh;
-  text-align: center;
-  display: grid;
-  place-items: center;
-  overflow: auto;
-  grid-template-rows: min-content;
-}
