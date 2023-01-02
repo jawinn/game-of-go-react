@@ -2,7 +2,14 @@
 
 A personal project to create the ancient board game **Go** in React.
   
-A demonstration of general React principles, custom function components, responsive design, CSS modules, and modern organized JavaScript / TypeScript code.
+A demonstration of general React principles, custom functional components, responsive design, CSS modules, and modern organized JavaScript / TypeScript code.  
+Gameplay is local. In other words, players take turns in the same web browser.
+
+Version: 0.1.1 - Not yet fully playable.
+
+## Screenshots ##
+
+![Screenshot of the game being played. The main gameplay UI showing the game board with some black and white stones placed on it.](/public/docs/screenshot-go-board-gameplay.png)
 
 ## Features ##
 
